@@ -14,5 +14,7 @@ struct ViewModelModule: Module {
                 .to(factory: GenreViewModelImpl.init)
         binder.bind(MovieViewModel.self)
                 .to(factory: MovieViewModelImpl.init)
+        binder.bind(MovieDetailViewModel.self)
+                .to(factory: MovieDetailViewModelImpl.init)
     }
 }

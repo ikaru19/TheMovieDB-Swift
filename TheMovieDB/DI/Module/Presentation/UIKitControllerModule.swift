@@ -18,5 +18,9 @@ struct UIKitControllerModule: Module {
             .to {
                 Presentation.UiKit.MovieListViewController(nibName: nil, bundle: nil, viewModel: $0)
             }
+        binder.bind(Presentation.UiKit.MovieDetailViewController.self)
+            .to {
+                Presentation.UiKit.MovieDetailViewController(nibName: nil, bundle: nil, viewModel: $0)
+            }
     }
 }

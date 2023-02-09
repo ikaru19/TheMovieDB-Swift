@@ -11,4 +11,5 @@ import Alamofire
 
 protocol GetMovieListDataSource: AnyObject {
     func getMovie(withGenreId: Int, page: Int) -> Single<[Data.MovieEntity]>
+    func getMovieVideos(movieId: Int) -> Single<[Data.VideoDataEntity]>
 }

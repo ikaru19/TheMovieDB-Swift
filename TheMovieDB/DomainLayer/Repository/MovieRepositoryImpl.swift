@@ -9,12 +9,16 @@ import Foundation
 import RxSwift
 
 class MovieRepositoryImpl: MovieRepository {
+    
     private var getMovieListDataSource: GetMovieListDataSource
+    private var getReviewDataSource: GetMovieReviewListDataSource
     
     init(
-        getMovieListDataSource: GetMovieListDataSource
+        getMovieListDataSource: GetMovieListDataSource,
+        getReviewDataSource: GetMovieReviewListDataSource
     ) {
         self.getMovieListDataSource = getMovieListDataSource
+        self.getReviewDataSource = getReviewDataSource
     }
     
     func getMovie(byGenreId: Int, page: Int) -> RxSwift.Single<[Data.MovieEntity]> {
@@ -22,4 +26,11 @@ class MovieRepositoryImpl: MovieRepository {
             .getMovie(withGenreId: byGenreId, page: page)
     }
     
+    func getReview(movieId: Int, page: Int) -> RxSwift.Single<[Data.ReviewEntity]> {
+        getReviewDataSource.getMovieReview(withMovieId: movieId, page: page)
+    }
+    
+    func getMovieVideos(movieId: Int) -> RxSwift.Single<[Data.VideoDataEntity]> {
+        getMovieListDataSource.getMovieVideos(movieId: movieId)
+    }
 }

@@ -199,6 +199,11 @@ extension Presentation.UiKit.MovieListViewController: UITableViewDelegate, UITab
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: GOTO DETAIL
+        guard let vc = (UIApplication.shared.delegate as? ProvideViewControllerResolver)?.vcResolver.instantiateDetailViewController().get() else {
+            fatalError("View Controller can't be nil: Genre")
+        }
+        vc.data = data[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

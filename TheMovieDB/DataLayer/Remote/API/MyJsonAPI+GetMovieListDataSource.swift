@@ -26,4 +26,17 @@ extension MyJsonAPI: GetMovieListDataSource {
             try $0.mapToData()
         }
     }
+    
+    func getMovieVideos(movieId: Int) -> RxSwift.Single<[Data.VideoDataEntity]> {
+        let endpoint = "movie/\(movieId)/videos"
+        return jsonRequestService.get(
+            to: endpoint,
+            param: [:],
+            header: [:],
+            type: ApiDataResponseImpl<[Data.VideoDataEntity]>.self
+        ).map {
+            try $0.mapToData()
+        }
+    }
+    
 }

@@ -11,4 +11,5 @@ import Cleanse
 protocol ViewControllerResolver: AnyObject {
     func instantiateHomeViewController() -> Provider<Presentation.UiKit.GenreViewController>
     func instantiateMoviewListViewController() -> Provider<Presentation.UiKit.MovieListViewController>
+    func instantiateDetailViewController() -> Provider<Presentation.UiKit.MovieDetailViewController>
 }
