@@ -37,20 +37,5 @@ class ViewController: UIViewController {
         vc.navigationItem.title = "Genre"
         self.presentInFullScreen(navController, animated: true)
     }
-    
-    func test(){
-        data?
-            .getMovieReview(withMovieId: 505642, page: 1)
-            .subscribe(
-                onSuccess: { data in
-                    print(37)
-                    print(data)
-                },
-                onError: { error in
-                    print(41)
-                    print(error)
-                }
-            )
-    }
 }
 

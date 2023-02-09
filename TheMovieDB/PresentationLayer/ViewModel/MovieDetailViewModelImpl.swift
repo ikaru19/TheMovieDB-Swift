@@ -54,11 +54,9 @@ class MovieDetailViewModelImpl: MovieDetailViewModel {
             .getMovieVideos(movieId: movieId)
             .subscribe(
                 onSuccess: { [weak self] data in
-                    print(data)
                     self?._videos.accept(data)
                 },
                 onError: { [weak self] error in
-                    print(error)
                     self?._errors.accept(error)
                 }
             ).disposed(by: disposeBag)
